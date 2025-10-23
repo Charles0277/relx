@@ -3,6 +3,7 @@ from transformers import pipeline, AutoTokenizer
 import spacy
 from collections import defaultdict
 import textwrap
+import pathlib
 
 # Initialize the summarisation pipeline once
 try:
@@ -114,6 +115,30 @@ def main():
     else:
         print("No entities found or Spacy model not loaded.")
     print("\n")
+
+    # 4. Save the summary and entities to a file
+    if args.files:
+        first_file_path = pathlib.Path(args.files[0])
+        output_filename = f"{first_file_path.stem}_summarised.txt"
+        output_filepath = first_file_path.parent / output_filename
+        
+        try:
+            with open(output_filepath, 'w', encoding='utf-8') as f:
+                f.write("--- Summary ---\n")
+                f.write(summary)
+                f.write("\n\n--- Named Entities ---\n")
+                if entities:
+                    for label, items in entities.items():
+                        f.write(f"{label}:\n")
+                        for item in items:
+                            f.write(f"  - {item}\n")
+                else:
+                    f.write("No entities found or Spacy model not loaded.\n")
+            
+            print(f"Summary and entities saved to {output_filepath}")
+        except Exception as e:
+            print(f"Could not save results to file: {e}")
+        print("\n")
 
 
 if __name__ == "__main__":

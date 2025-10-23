@@ -12,6 +12,10 @@ This is a command-line tool that generates a concise summary of one or more text
   - Dates (DATE)
 - **Multi-File Support**: Can process multiple text files at once.
 
+## Approach
+
+- **AI Development**: I used Cursor IDE and input the task along with the language I wanted, and the feature to use multiple text files as the input.
+
 ## Technical Choices
 
 - **Summarisation**: I used the `transformers` library from Hugging Face with the `facebook/bart-large-cnn` model. This pre-trained model is excellent for generating high-quality, abstractive summaries that are fluent and human-like.
@@ -65,7 +69,7 @@ python summariser.py sample_texts/article1.txt
 
 - **Model Size**: The `facebook/bart-large-cnn` model is large, and the first time you run the script, it will download several hundred megabytes of data.
 - **Input Length**: The summarisation model has a maximum input length of 1024 tokens. For texts longer than this, the script will truncate the input, which may result in an incomplete summary.
-- **File Types**: The script currently only supports plain text (.txt) files.
+- **File Types**: The script currently only supports plain text (.txt) files. Cannot copy and paste via clipboard either.
 - **Language**: Input files must be in English.
 
 ## Ideas for Improvement

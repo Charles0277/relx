@@ -1,0 +1,21 @@
+--- Summary ---
+Dr. Evelyn Reed announced a groundbreaking discovery in quantum computing on October 22, 2025. The discovery, published in the journal "Nature," could revolutionize the tech industry. The research was funded by a grant from the European Research Council.
+
+--- Named Entities ---
+PERSON:
+  - Evelyn Reed
+  - Reed
+ORG:
+  - MIT
+  - the European Research Council
+  - the University of Cambridge
+DATE:
+  - October 22, 2025
+  - next month
+WORK_OF_ART:
+  - Nature
+GPE:
+  - Geneva
+  - the United States
+FAC:
+  - the International Conference on Quantum Physics
